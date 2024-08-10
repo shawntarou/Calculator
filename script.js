@@ -1,21 +1,41 @@
-function add(firstNum, secondNum) {
-    return firstNum + secondNum;
+function add(x, y) {
+    return x + y;
 }
 
-function subtract(firstNum, secondNum) {
-    return firstNum - secondNum;
+function subtract(x, y) {
+    return x - y;
 }
 
-function multiply(firstNum, secondNum) {
-    return firstNum * secondNum;
+function multiply(x, y) {
+    return x * y;
 }
 
-function divide(firstNum, secondNum) {
-    return firstNum / secondNum;
+function divide(x, y) {
+    return x / y;
 }
 
+let firstNum;
+let seccondNum;
+let operator;
 
-console.log(add(1, 2));
-console.log(subtract(4, 2));
-console.log(multiply(5, 4));
-console.log(divide(4, 2));
+function operate() {
+    let firstNum = parseInt(prompt("first?"));
+    let operator = prompt("operator?");
+    let secondNum = parseInt(prompt("second?"));
+    switch (operator) {
+        case 'add':
+            console.log(add(firstNum,secondNum));
+            break;
+        case 'subtract':
+            console.log(subtract(firstNum,secondNum));
+            break;
+        case 'multiply':
+            console.log(multiply(firstNum,secondNum));
+            break;
+        case 'divide':
+            console.log(divide(firstNum,secondNum));
+            break;
+    };
+};
+
+operate();
