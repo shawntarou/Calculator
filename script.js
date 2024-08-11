@@ -23,7 +23,7 @@ function operate() {
     let operator = prompt("operator?");
     let secondNum = parseInt(prompt("second?"));
     switch (operator) {
-        case 'add':
+        case 'add': 
             console.log(add(firstNum,secondNum));
             break;
         case 'subtract':
@@ -37,5 +37,3 @@ function operate() {
             break;
     };
 };
-
-operate();
