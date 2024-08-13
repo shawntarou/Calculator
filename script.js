@@ -88,9 +88,7 @@ percent.addEventListener("click", function () {
         default:
             currentValue = currentValue * 0.01;
             if (String(currentValue).length > 7) {
-                console.log("gsdfs")
-                currentValue = parseFloat(currentValue).toPrecision(7);
-                displayValue.textContent = parseFloat(currentValue).toFixed(7);
+                displayValue.textContent = String(currentValue).substring(0,8);
             }
             else {
                 displayValue.textContent = currentValue;
