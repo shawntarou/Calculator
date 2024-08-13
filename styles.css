@@ -3,7 +3,7 @@ body {
 }
 
 #main {
-    background: rgb(110, 122, 159);
+    background: rgba(76, 101, 113, 0.478);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -11,8 +11,10 @@ body {
 }
 
 #container {
-    background: rgb(57, 57, 57);
-    border: 2px solid rgb(57, 57, 57);
+    background: rgb(26, 26, 26);
+    border: 2px solid rgb(26, 26, 26);
+    outline: 6px outset rgb(35, 58, 139);
+    outline-offset: .3rem;
     border-radius: 10px;
     padding: 20px;
     width: 400px;
@@ -20,8 +22,8 @@ body {
 }
 
 #display {
-    background: grey;
-    border: 2px solid grey;
+    background: rgb(183, 183, 183);
+    border: 2px solid rgb(35, 58, 139);
     border-radius: 10px;
     width: 400px;
     height: 100px;
