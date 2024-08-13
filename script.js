@@ -152,6 +152,9 @@ three.addEventListener("click", function () {
             return;
         } else {
             currentValue = String(currentValue + 3);
+            if (operationCheck) {
+                secondNum = currentValue;
+            }
             displayValue.textContent = currentValue;
         }
     }
@@ -333,8 +336,13 @@ function clearDisplay() {
 
 add.addEventListener("click", function () {
     if (operationCheck) {
-        secondNum = Number(currentValue);
-        operate();
+        if (secondNum == 0 && displayValue.textContent !== currentValue) {
+            secondNum = firstNum;
+            operate();
+        } else {
+            secondNum = Number(currentValue);
+            operate();
+        }
     }
     else {
         if (!newOperationCheck == true) {
@@ -355,7 +363,7 @@ subtract.addEventListener("click", function () {
     else {
         if (!newOperationCheck == true) {
             firstNum = Number(currentValue);
-        }
+        } 
         operator = 'subtract';
         console.log("subtract");
         currentValue = 0;
