@@ -79,6 +79,26 @@ const eight = document.querySelector("#eight-button");
 const nine = document.querySelector("#nine-button");
 const zero = document.querySelector("#zero-button");
 
+const percent = document.querySelector("#percent-button")
+
+percent.addEventListener("click", function () {
+    switch (displayNumber) {
+        case 0:
+            break;
+        default:
+            currentValue = currentValue * 0.01;
+            if (String(currentValue).length > 7) {
+                console.log("gsdfs")
+                currentValue = parseFloat(currentValue).toPrecision(7);
+                displayValue.textContent = parseFloat(currentValue).toFixed(7);
+            }
+            else {
+                displayValue.textContent = currentValue;
+                break;
+            }
+    }
+});
+
 one.addEventListener("click", function () {
     if (newOperationCheck == true) {
         currentValue = "1";
