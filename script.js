@@ -417,7 +417,10 @@ equals.addEventListener("click", function () {
     }
 })
 
-
+while (operator == 'add') {
+    add.classList.toggle("toggle")
+    console.log("sdfsj")
+};
 
 
 

@@ -64,6 +64,11 @@ button:active {
     transform: translateY(2px);
 }
 
+.toggle:focus {
+    background-color: rgb(168, 168, 168);
+    transform: translateY(2px);
+}
+
 #zero-button {
     width: 6.38em;
 }
