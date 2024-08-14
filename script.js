@@ -14,8 +14,8 @@ function divideOp(x, y) {
     return x / y;
 }
 
-let firstNum;
-let secondNum;
+let firstNum = 0;
+let secondNum = 0;
 let operator;
 let result;
 
@@ -26,7 +26,11 @@ function operate() {
         case 'add':
             result = addOp(firstNum, secondNum);
             console.log(result);
-            displayNumber.textContent = result;
+            if (String(result).length > 7) {
+                displayValue.textContent = String(result).substring(0,7) + "...";
+            } else {
+                displayNumber.textContent = result;
+            }
             currentValue = 0;
             firstNum = 0 + result;
             secondNum = 0;
@@ -34,6 +38,11 @@ function operate() {
         case 'subtract':
             result = subtractOp(firstNum, secondNum);
             console.log(result);
+            if (String(result).length > 7) {
+                displayValue.textContent = String(result).substring(0,7) + "...";
+            } else {
+                displayNumber.textContent = result;
+            }
             displayNumber.textContent = result;
             currentValue = 0;
             firstNum = 0 + result;
@@ -42,6 +51,11 @@ function operate() {
         case 'multiply':
             result = multiplyOp(firstNum, secondNum);
             console.log(result);
+            if (String(result).length > 7) {
+                displayValue.textContent = String(result).substring(0,7) + "...";
+            } else {
+                displayNumber.textContent = result;
+            }
             displayNumber.textContent = result;
             currentValue = 0;
             firstNum = 0 + result;
@@ -50,6 +64,11 @@ function operate() {
         case 'divide':
             result = divideOp(firstNum, secondNum);
             console.log(result);
+            if (String(result).length > 7) {
+                displayValue.textContent = String(result).substring(0,7) + "...";
+            } else {
+                displayNumber.textContent = result;
+            }
             if (result == Infinity) {
                 displayNumber.textContent = "( •_•)";
                 currentValue = 0;
@@ -82,13 +101,14 @@ const zero = document.querySelector("#zero-button");
 const percent = document.querySelector("#percent-button")
 
 percent.addEventListener("click", function () {
-    switch (displayNumber) {
+    switch (displayValue.textContent) {
         case 0:
             break;
         default:
             currentValue = currentValue * 0.01;
             if (String(currentValue).length > 7) {
                 displayValue.textContent = String(currentValue).substring(0,8);
+                console.log(currentValue);
             }
             else {
                 displayValue.textContent = currentValue;
@@ -357,8 +377,13 @@ add.addEventListener("click", function () {
 })
 subtract.addEventListener("click", function () {
     if (operationCheck) {
-        secondNum = Number(currentValue);
-        operate();
+        if (secondNum == 0 && displayValue.textContent !== currentValue) {
+            secondNum = firstNum;
+            operate();
+        } else {
+            secondNum = Number(currentValue);
+            operate();
+        }
     }
     else {
         if (!newOperationCheck == true) {
@@ -373,8 +398,13 @@ subtract.addEventListener("click", function () {
 })
 multiply.addEventListener("click", function () {
     if (operationCheck) {
-        secondNum = Number(currentValue);
-        operate();
+        if (secondNum == 0 && displayValue.textContent !== currentValue) {
+            secondNum = firstNum;
+            operate();
+        } else {
+            secondNum = Number(currentValue);
+            operate();
+        }
     }
     else {
         if (!newOperationCheck == true) {
@@ -389,8 +419,13 @@ multiply.addEventListener("click", function () {
 })
 divide.addEventListener("click", function () {
     if (operationCheck) {
-        secondNum = Number(currentValue);
-        operate();
+        if (secondNum == 0 && displayValue.textContent !== currentValue) {
+            secondNum = firstNum;
+            operate();
+        } else {
+            secondNum = Number(currentValue);
+            operate();
+        }
     }
     else {
         if (!newOperationCheck == true) {
@@ -416,11 +451,6 @@ equals.addEventListener("click", function () {
         operationCheck = false;
     }
 })
-
-while (operator == 'add') {
-    add.classList.toggle("toggle")
-    console.log("sdfsj")
-};
 
 
 
