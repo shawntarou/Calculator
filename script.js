@@ -27,7 +27,7 @@ function operate() {
             result = addOp(firstNum, secondNum);
             console.log(result);
             if (String(result).length > 7) {
-                displayNumber.textContent = String(result).substring(0,7) + "...";
+                displayNumber.textContent = String(result).substring(0, 7) + "...";
             } else {
                 displayNumber.textContent = result;
             }
@@ -39,7 +39,7 @@ function operate() {
             result = subtractOp(firstNum, secondNum);
             console.log(result);
             if (String(result).length > 7) {
-                displayNumber.textContent = String(result).substring(0,7) + "...";
+                displayNumber.textContent = String(result).substring(0, 7) + "...";
             } else {
                 displayNumber.textContent = result;
             }
@@ -55,9 +55,9 @@ function operate() {
                 currentValue = 0;
                 firstNum = 0;
                 secondNum = 0;
-            } 
+            }
             else if (String(result).length > 7) {
-                displayNumber.textContent = String(result).substring(0,7) + "...";
+                displayNumber.textContent = String(result).substring(0, 7) + "...";
             } else {
                 displayNumber.textContent = result;
             }
@@ -73,9 +73,9 @@ function operate() {
                 currentValue = 0;
                 firstNum = 0;
                 secondNum = 0;
-            } 
+            }
             else if (String(result).length > 7) {
-                displayNumber.textContent = String(result).substring(0,7) + "...";
+                displayNumber.textContent = String(result).substring(0, 7) + "...";
             }
             else {
                 displayNumber.textContent = result;
@@ -110,7 +110,7 @@ percent.addEventListener("click", function () {
             currentValue = currentValue * 0.01;
             if (String(currentValue).length > 7) {
                 console.log("sdkjfsejfks")
-                displayNumber.textContent = String(currentValue).substring(0,8);
+                displayNumber.textContent = String(currentValue).substring(0, 8);
                 console.log(currentValue);
             }
             else {
@@ -123,7 +123,7 @@ percent.addEventListener("click", function () {
 one.addEventListener("click", function () {
     if (newOperationCheck == true) {
         currentValue = "1";
-        displayNumber   .textContent = currentValue;
+        displayNumber.textContent = currentValue;
         newOperationCheck = false;
     }
     else if (displayNumber.textContent == 0) {
@@ -333,6 +333,7 @@ const subtract = document.querySelector("#subtract-button");
 const multiply = document.querySelector("#multiply-button");
 const divide = document.querySelector("#divide-button");
 const equals = document.querySelector("#equals-button");
+const decimal = document.querySelector("#decimal-button");
 
 
 // Makes sure that an operation completes before another can start (E.g. 1 + 1 + 1 --> 1 + 1 = 2 + 1)
@@ -391,7 +392,7 @@ subtract.addEventListener("click", function () {
     else {
         if (!newOperationCheck == true) {
             firstNum = Number(currentValue);
-        } 
+        }
         operator = 'subtract';
         console.log("subtract");
         currentValue = 0;
@@ -452,6 +453,15 @@ equals.addEventListener("click", function () {
         operator = undefined;
         newOperationCheck = true;
         operationCheck = false;
+    }
+})
+
+decimal.addEventListener("click", function () {
+    if (String(currentValue).includes(".")) {
+        return;
+    } else {
+        currentValue = String(currentValue + ".");
+        displayNumber.textContent = currentValue;
     }
 })
 
