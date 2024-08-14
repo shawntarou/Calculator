@@ -27,7 +27,7 @@ function operate() {
             result = addOp(firstNum, secondNum);
             console.log(result);
             if (String(result).length > 7) {
-                displayValue.textContent = String(result).substring(0,7) + "...";
+                displayNumber.textContent = String(result).substring(0,7) + "...";
             } else {
                 displayNumber.textContent = result;
             }
@@ -39,11 +39,10 @@ function operate() {
             result = subtractOp(firstNum, secondNum);
             console.log(result);
             if (String(result).length > 7) {
-                displayValue.textContent = String(result).substring(0,7) + "...";
+                displayNumber.textContent = String(result).substring(0,7) + "...";
             } else {
                 displayNumber.textContent = result;
             }
-            displayNumber.textContent = result;
             currentValue = 0;
             firstNum = 0 + result;
             secondNum = 0;
@@ -51,12 +50,17 @@ function operate() {
         case 'multiply':
             result = multiplyOp(firstNum, secondNum);
             console.log(result);
-            if (String(result).length > 7) {
-                displayValue.textContent = String(result).substring(0,7) + "...";
+            if (result == Infinity) {
+                displayNumber.textContent = "( •_•)";
+                currentValue = 0;
+                firstNum = 0;
+                secondNum = 0;
+            } 
+            else if (String(result).length > 7) {
+                displayNumber.textContent = String(result).substring(0,7) + "...";
             } else {
                 displayNumber.textContent = result;
             }
-            displayNumber.textContent = result;
             currentValue = 0;
             firstNum = 0 + result;
             secondNum = 0;
@@ -64,17 +68,16 @@ function operate() {
         case 'divide':
             result = divideOp(firstNum, secondNum);
             console.log(result);
-            if (String(result).length > 7) {
-                displayValue.textContent = String(result).substring(0,7) + "...";
-            } else {
-                displayNumber.textContent = result;
-            }
             if (result == Infinity) {
                 displayNumber.textContent = "( •_•)";
                 currentValue = 0;
                 firstNum = 0;
                 secondNum = 0;
-            } else {
+            } 
+            else if (String(result).length > 7) {
+                displayNumber.textContent = String(result).substring(0,7) + "...";
+            }
+            else {
                 displayNumber.textContent = result;
                 currentValue = 0;
                 firstNum = 0 + result;
@@ -84,7 +87,6 @@ function operate() {
     };
 };
 
-const displayValue = document.querySelector("#display-number");
 let currentValue = 0;
 
 const one = document.querySelector("#one-button");
@@ -101,17 +103,18 @@ const zero = document.querySelector("#zero-button");
 const percent = document.querySelector("#percent-button")
 
 percent.addEventListener("click", function () {
-    switch (displayValue.textContent) {
+    switch (displayNumber.textContent) {
         case 0:
             break;
         default:
             currentValue = currentValue * 0.01;
             if (String(currentValue).length > 7) {
-                displayValue.textContent = String(currentValue).substring(0,8);
+                console.log("sdkjfsejfks")
+                displayNumber.textContent = String(currentValue).substring(0,8);
                 console.log(currentValue);
             }
             else {
-                displayValue.textContent = currentValue;
+                displayNumber.textContent = currentValue;
                 break;
             }
     }
@@ -120,19 +123,19 @@ percent.addEventListener("click", function () {
 one.addEventListener("click", function () {
     if (newOperationCheck == true) {
         currentValue = "1";
-        displayValue.textContent = currentValue;
+        displayNumber   .textContent = currentValue;
         newOperationCheck = false;
     }
-    else if (displayValue.textContent == 0) {
+    else if (displayNumber.textContent == 0) {
         currentValue = "1";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
     }
     else {
         if (currentValue.length > 7) {
             return;
         } else {
             currentValue = String(currentValue + 1);
-            displayValue.textContent = currentValue;
+            displayNumber.textContent = currentValue;
         }
     }
     console.log(currentValue);
@@ -140,19 +143,19 @@ one.addEventListener("click", function () {
 two.addEventListener("click", function () {
     if (newOperationCheck == true) {
         currentValue = "2";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
         newOperationCheck = false;
     }
-    else if (displayValue.textContent == 0) {
+    else if (displayNumber.textContent == 0) {
         currentValue = "2";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
     }
     else {
         if (currentValue.length > 7) {
             return;
         } else {
             currentValue = String(currentValue + 2);
-            displayValue.textContent = currentValue;
+            displayNumber.textContent = currentValue;
         }
     }
     console.log(currentValue);
@@ -160,12 +163,12 @@ two.addEventListener("click", function () {
 three.addEventListener("click", function () {
     if (newOperationCheck == true) {
         currentValue = "3";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
         newOperationCheck = false;
     }
-    else if (displayValue.textContent == 0) {
+    else if (displayNumber.textContent == 0) {
         currentValue = "3";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
     }
     else {
         if (currentValue.length > 7) {
@@ -175,7 +178,7 @@ three.addEventListener("click", function () {
             if (operationCheck) {
                 secondNum = currentValue;
             }
-            displayValue.textContent = currentValue;
+            displayNumber.textContent = currentValue;
         }
     }
     console.log(currentValue);
@@ -183,19 +186,19 @@ three.addEventListener("click", function () {
 four.addEventListener("click", function () {
     if (newOperationCheck == true) {
         currentValue = "4";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
         newOperationCheck = false;
     }
-    else if (displayValue.textContent == 0) {
+    else if (displayNumber.textContent == 0) {
         currentValue = "4";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
     }
     else {
         if (currentValue.length > 7) {
             return;
         } else {
             currentValue = String(currentValue + 4);
-            displayValue.textContent = currentValue;
+            displayNumber.textContent = currentValue;
         }
     }
     console.log(currentValue);
@@ -203,19 +206,19 @@ four.addEventListener("click", function () {
 five.addEventListener("click", function () {
     if (newOperationCheck == true) {
         currentValue = "5";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
         newOperationCheck = false;
     }
-    else if (displayValue.textContent == 0) {
+    else if (displayNumber.textContent == 0) {
         currentValue = "5";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
     }
     else {
         if (currentValue.length > 7) {
             return;
         } else {
             currentValue = String(currentValue + 5);
-            displayValue.textContent = currentValue;
+            displayNumber.textContent = currentValue;
         }
     }
     console.log(currentValue);
@@ -223,19 +226,19 @@ five.addEventListener("click", function () {
 six.addEventListener("click", function () {
     if (newOperationCheck == true) {
         currentValue = "6";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
         newOperationCheck = false;
     }
-    else if (displayValue.textContent == 0) {
+    else if (displayNumber.textContent == 0) {
         currentValue = "6";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
     }
     else {
         if (currentValue.length > 7) {
             return;
         } else {
             currentValue = String(currentValue + 6);
-            displayValue.textContent = currentValue;
+            displayNumber.textContent = currentValue;
         }
     }
     console.log(currentValue);
@@ -243,19 +246,19 @@ six.addEventListener("click", function () {
 seven.addEventListener("click", function () {
     if (newOperationCheck == true) {
         currentValue = "7";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
         newOperationCheck = false;
     }
-    else if (displayValue.textContent == 0) {
+    else if (displayNumber.textContent == 0) {
         currentValue = "7";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
     }
     else {
         if (currentValue.length > 7) {
             return;
         } else {
             currentValue = String(currentValue + 7);
-            displayValue.textContent = currentValue;
+            displayNumber.textContent = currentValue;
         }
     }
     console.log(currentValue);
@@ -263,19 +266,19 @@ seven.addEventListener("click", function () {
 eight.addEventListener("click", function () {
     if (newOperationCheck == true) {
         currentValue = "8";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
         newOperationCheck = false;
     }
-    else if (displayValue.textContent == 0) {
+    else if (displayNumber.textContent == 0) {
         currentValue = "8";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
     }
     else {
         if (currentValue.length > 7) {
             return;
         } else {
             currentValue = String(currentValue + 8);
-            displayValue.textContent = currentValue;
+            displayNumber.textContent = currentValue;
         }
     }
     console.log(currentValue);
@@ -283,19 +286,19 @@ eight.addEventListener("click", function () {
 nine.addEventListener("click", function () {
     if (newOperationCheck == true) {
         currentValue = "9";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
         newOperationCheck = false;
     }
-    else if (displayValue.textContent == 0) {
+    else if (displayNumber.textContent == 0) {
         currentValue = "9";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
     }
     else {
         if (currentValue.length > 7) {
             return;
         } else {
             currentValue = String(currentValue + 9);
-            displayValue.textContent = currentValue;
+            displayNumber.textContent = currentValue;
         }
     }
     console.log(currentValue);
@@ -303,22 +306,22 @@ nine.addEventListener("click", function () {
 zero.addEventListener("click", function () {
     if (newOperationCheck == true) {
         currentValue = "0";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
         newOperationCheck = false;
     }
-    else if (displayValue.textContent == 0) {
+    else if (displayNumber.textContent == 0) {
         currentValue = "0";
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
     }
     else if (currentValue == 0) {
-        displayValue.textContent = currentValue;
+        displayNumber.textContent = currentValue;
     }
     else {
         if (currentValue.length > 7) {
             return;
         } else {
             currentValue = currentValue + "0";
-            displayValue.textContent = currentValue;
+            displayNumber.textContent = currentValue;
         }
     }
     console.log(currentValue);
@@ -341,14 +344,14 @@ let newOperationCheck = false;
 
 allClear.addEventListener("click", function () {
     currentValue = 0;
-    displayValue.textContent = currentValue;
+    displayNumber.textContent = currentValue;
     operationCheck = false;
     newOperationCheck = false;
     console.log(currentValue);
 })
 
 function clearDisplay() {
-    displayValue.textContent = 0;
+    displayNumber.textContent = 0;
     currentValue = 0;
     console.log("First Num:" + firstNum);
     console.log("curr val:" + currentValue);
@@ -356,7 +359,7 @@ function clearDisplay() {
 
 add.addEventListener("click", function () {
     if (operationCheck) {
-        if (secondNum == 0 && displayValue.textContent !== currentValue) {
+        if (secondNum == 0 && displayNumber.textContent !== currentValue) {
             secondNum = firstNum;
             operate();
         } else {
@@ -377,7 +380,7 @@ add.addEventListener("click", function () {
 })
 subtract.addEventListener("click", function () {
     if (operationCheck) {
-        if (secondNum == 0 && displayValue.textContent !== currentValue) {
+        if (secondNum == 0 && displayNumber.textContent !== currentValue) {
             secondNum = firstNum;
             operate();
         } else {
@@ -398,7 +401,7 @@ subtract.addEventListener("click", function () {
 })
 multiply.addEventListener("click", function () {
     if (operationCheck) {
-        if (secondNum == 0 && displayValue.textContent !== currentValue) {
+        if (secondNum == 0 && displayNumber.textContent !== currentValue) {
             secondNum = firstNum;
             operate();
         } else {
@@ -419,7 +422,7 @@ multiply.addEventListener("click", function () {
 })
 divide.addEventListener("click", function () {
     if (operationCheck) {
-        if (secondNum == 0 && displayValue.textContent !== currentValue) {
+        if (secondNum == 0 && displayNumber.textContent !== currentValue) {
             secondNum = firstNum;
             operate();
         } else {
