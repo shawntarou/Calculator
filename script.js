@@ -698,6 +698,10 @@ document.addEventListener("keydown", function (event) {
                 displayNumber.textContent = currentValue;
             }
             break;
+        case "Backspace":
+            currentValue = 0;
+            displayNumber.textContent = currentValue;
+            break;
         default:
             return;
     }
