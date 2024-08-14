@@ -109,7 +109,6 @@ percent.addEventListener("click", function () {
         default:
             currentValue = currentValue * 0.01;
             if (String(currentValue).length > 7) {
-                console.log("sdkjfsejfks")
                 displayNumber.textContent = String(currentValue).substring(0, 8);
                 console.log(currentValue);
             }
@@ -334,6 +333,7 @@ const multiply = document.querySelector("#multiply-button");
 const divide = document.querySelector("#divide-button");
 const equals = document.querySelector("#equals-button");
 const decimal = document.querySelector("#decimal-button");
+const pnButton = document.querySelector("#positive-negative-button");
 
 
 // Makes sure that an operation completes before another can start (E.g. 1 + 1 + 1 --> 1 + 1 = 2 + 1)
@@ -465,6 +465,17 @@ decimal.addEventListener("click", function () {
     }
 })
 
-
+pnButton.addEventListener("click", function () {
+    if (currentValue == 0) {
+        return;
+    } else if (currentValue > 0) {
+        currentValue = -Math.abs(currentValue);
+        displayNumber.textContent = currentValue;
+    }
+    else {
+        currentValue = Math.abs(currentValue);
+        displayNumber.textContent = currentValue;
+    }
+})
 
 
