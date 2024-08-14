@@ -478,4 +478,227 @@ pnButton.addEventListener("click", function () {
     }
 })
 
+document.addEventListener("keydown", function (event) {
+    if (event.defaultPrevented) {
+        return;
+    }
 
+    switch (event.key) {
+        case "7":
+            if (newOperationCheck == true) {
+                currentValue = "7";
+                displayNumber.textContent = currentValue;
+                newOperationCheck = false;
+            }
+            else if (displayNumber.textContent == 0) {
+                currentValue = "7";
+                displayNumber.textContent = currentValue;
+            }
+            else {
+                if (currentValue.length > 7) {
+                    return;
+                } else {
+                    currentValue = String(currentValue + 7);
+                    displayNumber.textContent = currentValue;
+                }
+            }
+            console.log(currentValue);
+            break;
+        case "8":
+            if (newOperationCheck == true) {
+                currentValue = "8";
+                displayNumber.textContent = currentValue;
+                newOperationCheck = false;
+            }
+            else if (displayNumber.textContent == 0) {
+                currentValue = "8";
+                displayNumber.textContent = currentValue;
+            }
+            else {
+                if (currentValue.length > 7) {
+                    return;
+                } else {
+                    currentValue = String(currentValue + 8);
+                    displayNumber.textContent = currentValue;
+                }
+            }
+            console.log(currentValue);
+            break;
+        case "9":
+            if (newOperationCheck == true) {
+                currentValue = "9";
+                displayNumber.textContent = currentValue;
+                newOperationCheck = false;
+            }
+            else if (displayNumber.textContent == 0) {
+                currentValue = "9";
+                displayNumber.textContent = currentValue;
+            }
+            else {
+                if (currentValue.length > 7) {
+                    return;
+                } else {
+                    currentValue = String(currentValue + 9);
+                    displayNumber.textContent = currentValue;
+                }
+            }
+            console.log(currentValue);
+            break;
+        case "4":
+            if (newOperationCheck == true) {
+                currentValue = "4";
+                displayNumber.textContent = currentValue;
+                newOperationCheck = false;
+            }
+            else if (displayNumber.textContent == 0) {
+                currentValue = "4";
+                displayNumber.textContent = currentValue;
+            }
+            else {
+                if (currentValue.length > 7) {
+                    return;
+                } else {
+                    currentValue = String(currentValue + 4);
+                    displayNumber.textContent = currentValue;
+                }
+            }
+            console.log(currentValue);
+            break;
+        case "5":
+            if (newOperationCheck == true) {
+                currentValue = "5";
+                displayNumber.textContent = currentValue;
+                newOperationCheck = false;
+            }
+            else if (displayNumber.textContent == 0) {
+                currentValue = "5";
+                displayNumber.textContent = currentValue;
+            }
+            else {
+                if (currentValue.length > 7) {
+                    return;
+                } else {
+                    currentValue = String(currentValue + 5);
+                    displayNumber.textContent = currentValue;
+                }
+            }
+            console.log(currentValue);
+            break;
+        case "6":
+            if (newOperationCheck == true) {
+                currentValue = "6";
+                displayNumber.textContent = currentValue;
+                newOperationCheck = false;
+            }
+            else if (displayNumber.textContent == 0) {
+                currentValue = "6";
+                displayNumber.textContent = currentValue;
+            }
+            else {
+                if (currentValue.length > 7) {
+                    return;
+                } else {
+                    currentValue = String(currentValue + 6);
+                    displayNumber.textContent = currentValue;
+                }
+            }
+            console.log(currentValue);
+            break;
+        case "1":
+            if (newOperationCheck == true) {
+                currentValue = "1";
+                displayNumber.textContent = currentValue;
+                newOperationCheck = false;
+            }
+            else if (displayNumber.textContent == 0) {
+                currentValue = "1";
+                displayNumber.textContent = currentValue;
+            }
+            else {
+                if (currentValue.length > 7) {
+                    return;
+                } else {
+                    currentValue = String(currentValue + 1);
+                    displayNumber.textContent = currentValue;
+                }
+            }
+            console.log(currentValue);
+            break;
+        case "2":
+            if (newOperationCheck == true) {
+                currentValue = "2";
+                displayNumber.textContent = currentValue;
+                newOperationCheck = false;
+            }
+            else if (displayNumber.textContent == 0) {
+                currentValue = "2";
+                displayNumber.textContent = currentValue;
+            }
+            else {
+                if (currentValue.length > 7) {
+                    return;
+                } else {
+                    currentValue = String(currentValue + 2);
+                    displayNumber.textContent = currentValue;
+                }
+            }
+            console.log(currentValue);
+            break;
+        case "3":
+            if (newOperationCheck == true) {
+                currentValue = "3";
+                displayNumber.textContent = currentValue;
+                newOperationCheck = false;
+            }
+            else if (displayNumber.textContent == 0) {
+                currentValue = "3";
+                displayNumber.textContent = currentValue;
+            }
+            else {
+                if (currentValue.length > 7) {
+                    return;
+                } else {
+                    currentValue = String(currentValue + 3);
+                    if (operationCheck) {
+                        secondNum = currentValue;
+                    }
+                    displayNumber.textContent = currentValue;
+                }
+            }
+            console.log(currentValue);
+            break;
+        case "0":
+            if (newOperationCheck == true) {
+                currentValue = "0";
+                displayNumber.textContent = currentValue;
+                newOperationCheck = false;
+            }
+            else if (displayNumber.textContent == 0) {
+                currentValue = "0";
+                displayNumber.textContent = currentValue;
+            }
+            else if (currentValue == 0) {
+                displayNumber.textContent = currentValue;
+            }
+            else {
+                if (currentValue.length > 7) {
+                    return;
+                } else {
+                    currentValue = currentValue + "0";
+                    displayNumber.textContent = currentValue;
+                }
+            }
+            console.log(currentValue);
+            break;
+        case ".":
+            if (String(currentValue).includes(".")) {
+                return;
+            } else {
+                currentValue = String(currentValue + ".");
+                displayNumber.textContent = currentValue;
+            }
+            break;
+        default:
+            return;
+    }
+})
